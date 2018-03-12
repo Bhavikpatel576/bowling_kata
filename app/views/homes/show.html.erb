@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+ </head>
+
+  <body>
+
+         <h1 class="cover-heading">Lets Bowl!!!</h1>
+          <p class="lead"> Quick game that demos the bowling kata </p>
+          <li> <%= link_to 'sign up', new_user_registration_path %> </li>
+          
+          <% if user_signed_in? %>
+            <li> <%= link_to 'sign out', destroy_user_session_path, method: :delete %> </li>
+          <% else %>
+            <li> <%= link_to 'sign in', new_user_session_path %> </li>
+          <% end %>
+
+          </p>
+          <p> <%= link_to "Profile Page", current_user %> <p>
+
+          <%= button_to 'New Game 2', user_games_path(current_user.id), method: :post %>
+
+
+          </main>
+
+          <footer class="mastfoot">
+            <div class="inner">
+              <p>Check out my other <a href="http://www.bhavik-patel.com/">Projects</a>, by <a href="https://twitter.com/bhavikpatel576">@bhavikpatel576</a>.</p>
+            </div>
+          </footer>
+
+        </div>
+
+      </div>
+
+    </div>
+ </body>
+</html>
+
+
