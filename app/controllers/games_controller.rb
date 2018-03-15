@@ -9,9 +9,7 @@ class GamesController < ApplicationController
 	#current_user.game
 	def create
 		@user = current_user
-		@game = Game.new(game_params)
-		@user.games = @game
-		binding.pry
+		@game = @user.games.new
 		if @game.save
 			render "new"
 		else
@@ -22,7 +20,7 @@ class GamesController < ApplicationController
 	private
 
 	def game_params
-		params.(Game.maximum(:id) || 0) + 1 
+		(Game.maximum(:id) || 0) + 1 
 	end
 
 end
