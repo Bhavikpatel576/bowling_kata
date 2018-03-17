@@ -11,16 +11,15 @@ class GamesController < ApplicationController
 		@user = current_user
 		@game = @user.games.new
 		if @game.save
-			render "new"
+			binding.pry
+			redirect_to user_game_path(@user, @game.id)
 		else
-			redirect_to root_path
+			render "new"
 		end
 	end
 
-	private
-
-	def game_params
-		(Game.maximum(:id) || 0) + 1 
+	def show
+		
 	end
 
 end

@@ -11,6 +11,7 @@
           
           <% if user_signed_in? %>
             <li> <%= link_to 'sign out', destroy_user_session_path, method: :delete %> </li>
+            <%= button_to 'New Game 2', user_games_path(current_user.id), method: :post %>
           <% else %>
             <li> <%= link_to 'sign in', new_user_session_path %> </li>
           <% end %>
@@ -18,7 +19,7 @@
           </p>
           <p> <%= link_to "Profile Page", current_user %> <p>
 
-          <%= button_to 'New Game 2', user_games_path(current_user.id), method: :post %>
+          
 
 
           </main>

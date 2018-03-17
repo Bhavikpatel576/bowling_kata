@@ -1,3 +1,121 @@
 // Place all the styles related to the games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+bowling{
+margin:0;
+  padding:0;
+  float:left;
+}
+
+
+html,body{
+ position:relative;
+  background-color:rgb(244,144,244);
+  width:100%;
+  height:100%;
+
+}
+
+.pin:before {
+  content:"";
+ 
+  position:absolute;
+  z-index:0;
+  top:-26px;
+  left:3px;
+  width:34px;
+  height:44px;
+  background-color:transparent;
+  background-image:-webkit-linear-gradient(
+    top, white 0%, whitesmoke 100%
+    );
+  background-image:-moz-linear-gradient(
+    top, white 0%, whitesmoke 100%
+    );
+  background-image:linear-gradient(
+    top, white 0%, whitesmoke 100%
+    );
+  clip:rect(0px,100px,38px,0px);
+  border-radius:100%;
+ box-shadow:inset 2px 0px 10px rgba(0,0,0,0.3),
+            inset -2px 0 10px rgba(0,0,0,0.3);
+}
+
+.pin{
+  margin:90px auto 0 auto;
+  display:block;
+  
+  position:relative;
+  width:40px;
+   height:112px;
+  background-color:whitesmoke;
+  background-image:-webkit-linear-gradient(
+    top, whitesmoke, whitesmoke 12px,
+          red 12px, red 19px,
+          whitesmoke 19px, whitesmoke 25px,
+          red 25px, red 32px,
+          whitesmoke 32px
+    );
+  background-image:-moz-linear-gradient(
+    top, whitesmoke, whitesmoke 12px,
+          red 12px, red 19px,
+          whitesmoke 19px, whitesmoke 25px,
+          red 25px, red 32px,
+          whitesmoke 32px
+    );
+  background-image:linear-gradient(
+    top, whitesmoke, whitesmoke 12px,
+          red 12px, red 19px,
+          whitesmoke 19px, whitesmoke 25px,
+          red 25px, red 32px,
+          whitesmoke 32px
+    );
+  border-radius:100%;
+  box-shadow:inset 2px 0px 10px rgba(0,0,0,0.3),
+            inset -2px 0 10px rgba(0,0,0,0.3);
+}
+
+.pin:after {
+    content:"";
+  z-index:10;
+  position:absolute;
+  width:14px;
+  height:2px;
+  left:13px;
+  bottom:0px;
+  background-color:rgb(19,240,240);
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+}
+
+
+body{
+
+}
+.title{
+  text-align: center;
+}
+.buttons{
+  text-align: center;
+  margin: 30px;
+}
+.notice{
+  text-align: center;
+  color: #d3313a;
+}
+.final-score{
+  text-align: center;
+  color: green;
+  padding-bottom: 10px;
+}
+#playagain{
+  text-align: center;
+}
+table.scorecard {margin: 0 auto; width:80%; font-size:12px; border:1px solid; text-align: center; table-layout: fixed; margin-bottom: 40px;}
+table.scorecard th, tr, td {padding: 0; vertical-align: middle; font-family: Arial, Helvetica, sans-serif; text-align: center;}
+table.scorecard th {border-bottom:1px solid; background-color:#d3313a; height:30px; color: #fff}
+table.scorecard th:not(:last-child) {border-right:1px solid;}
+table.scorecard td {height:30px; background: rgba(255, 255, 255, 0.5);}
+table.scorecard tr td:not(:last-child) {border-right:1px solid;}
+table.scorecard tr:nth-child(2) td:nth-child(even) {border-bottom:1px solid;}
+table.scorecard tr:nth-child(2) td:last-child {border-bottom:1px solid;}
