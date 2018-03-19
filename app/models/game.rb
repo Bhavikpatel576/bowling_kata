@@ -27,24 +27,24 @@ class Game < ApplicationRecord
 
 	def score
 		scores = 0
-		idx = 0
+		frameindex = 0
 		10.times do |_|
-			if spare? (idx)
-				scores += spare_score(idx)
+			if spare? (frameindex)
+				scores += spare_score(frameindex)
 			else
-				scores += rolls[idx] + rolls[idx + 1]
+				scores += rolls[frameindex] + rolls[frameindex + 1]
 			end
-			idx += 2
+			frameindex += 2
 		end
 		scores
 	end
 
-	def spare?(idx)
-		rolls[idx] + rolls[idx + 1] == 10
+	def spare?(frameindex)
+		rolls[frameindex] + rolls[frameindex + 1] == 10
 	end
 
-	def spare_score(idx)
-		rolls[idx] + rolls[idx + 1] + rolls[idx + 2]
+	def spare_score(frameindex)
+		rolls[frameindex] + rolls[frameindex + 1] + rolls[frameindex + 2]
 	end
 
 	#On the 10th frame, you're allowed to roll 3 balls if a strike or spare is made
