@@ -37,4 +37,18 @@ RSpec.describe Game, "#score" do
     17.times {@bowling.roll(0)}
     expect(@bowling.score).to eq (16)
   end
+
+  it "score with one strike" do 
+    @bowling.roll(10)
+    @bowling.roll(5)
+    @bowling.roll(3)
+    17.times {@bowling.roll(0)}
+    expect(@bowling.score).to eq (26)
+  end
+
+
+  it "test perfect game" do 
+    12.times {@bowling.roll(10)}
+    expect(@bowling.score).to eq (300)
+  end
 end

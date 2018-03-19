@@ -29,14 +29,26 @@ class Game < ApplicationRecord
 		scores = 0
 		frameindex = 0
 		10.times do |_|
-			if spare? (frameindex)
+			if strike?(frameindex) 
+				scores += strike_score(frameindex)
+				frameindex += 1
+			elsif spare? (frameindex)
 				scores += spare_score(frameindex)
+				frameindex += 2
 			else
 				scores += rolls[frameindex] + rolls[frameindex + 1]
+				frameindex += 2
 			end
-			frameindex += 2
 		end
 		scores
+	end
+
+	def strike?(frameindex)
+		rolls[frameindex] == 10
+	end
+
+	def strike_score(frameindex)
+		rolls[frameindex] + rolls[frameindex + 1] + rolls[frameindex + 2]
 	end
 
 	def spare?(frameindex)
