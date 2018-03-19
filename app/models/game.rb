@@ -2,7 +2,7 @@ FRAMES = 10
 POSSIBLEROLLS = 21
 
 class Game < ApplicationRecord
-	attr_accessor :rolls, :current_roll
+	attr_accessor :rolls, :current_roll, :frameindex
 	has_many :scores
 	belongs_to :user
 
@@ -14,6 +14,7 @@ class Game < ApplicationRecord
 		@score = 0
 		@rolls = Array.new(POSSIBLEROLLS,0)
 		@current_roll = 0
+		@frameindex = 0
 	end
 
 	#called each time a player rolls a ball, argument is the number of pins knocked down
@@ -23,6 +24,7 @@ class Game < ApplicationRecord
 	end
 
 	def total_score
+		score
 	end
 
 	def score
@@ -59,8 +61,8 @@ class Game < ApplicationRecord
 		rolls[frameindex] + rolls[frameindex + 1] + rolls[frameindex + 2]
 	end
 
-	#On the 10th frame, you're allowed to roll 3 balls if a strike or spare is made
 	def current_frame
+		frameindex
 	end
 
 	private
