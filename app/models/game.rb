@@ -9,7 +9,8 @@ class Game < ApplicationRecord
 	#add the logic to my bowling game
 	#game will have hte following behaviors
 
-	def initialize
+	def initialize(what)
+		@what = what
 		#@score = Score.create
 		@score = 0
 		@rolls = Array.new(POSSIBLEROLLS,0)

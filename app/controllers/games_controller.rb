@@ -9,6 +9,7 @@ class GamesController < ApplicationController
 	#current_user.game
 	def create
 		@user = current_user
+		binding.pry
 		@game = @user.games.new
 		if @game.save
 			binding.pry
