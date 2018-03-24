@@ -1,4 +1,4 @@
-
+require 'pry'
 class GamesController < ApplicationController
 	#we shoudl add a before_action :require_login
 	def new
@@ -9,10 +9,8 @@ class GamesController < ApplicationController
 	#current_user.game
 	def create
 		@user = current_user
-		binding.pry
 		@game = @user.games.new
 		if @game.save
-			binding.pry
 			redirect_to user_game_path(@user, @game.id)
 		else
 			render "new"
@@ -20,7 +18,10 @@ class GamesController < ApplicationController
 	end
 
 	def show
-		
+		#make sure to find the correct game with find
+		@game = current_user.games.last
+
+		@game.rolls(random_number)
 	end
 
 end

@@ -1,11 +1,18 @@
-FRAMES = 10
-POSSIBLEROLLS = 21
 
-class Game < ApplicationRecord
-	attr_accessor :rolls, :current_roll, :frameindex
-	has_many :scores
-	belongs_to :user
+class GameLogic
+    #add the logic to my bowling game
+	#game will have hte following behaviors
 
+	def initialize(what)
+		@what = what
+		#@score = Score.create
+		@score = 0
+		@rolls = Array.new(POSSIBLEROLLS,0)
+		@current_roll = 0
+		@frameindex = 0
+	end
+
+	#called each time a player rolls a ball, argument is the number of pins knocked down
 	def roll(pins)
 		@rolls[@current_roll] = pins
 		@current_roll += 1
@@ -57,5 +64,4 @@ class Game < ApplicationRecord
 
 	def store_game_information
 	end
-
 end
